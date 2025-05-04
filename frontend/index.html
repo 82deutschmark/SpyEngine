@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spy Engine Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Spy Engine</h1>
+    </header>
+
+    <section id="initial-input-section">
+      <h2>Start Your Adventure</h2>
+      <form id="initial-input-form">
+        <label>Protagonist Name:
+          <input type="text" id="protagonist-name" required />
+        </label>
+        <label>Protagonist Gender:
+          <select id="protagonist-gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="nonbinary">Non-binary</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>Conflict:
+          <select id="conflict-select"></select>
+        </label>
+        <label>Setting:
+          <select id="setting-select"></select>
+        </label>
+        <label>Narrative Style:
+          <select id="narrative-style-select"></select>
+        </label>
+        <label>Mood:
+          <select id="mood-select"></select>
+        </label>
+        <button type="submit">Begin Story</button>
+      </form>
+    </section>
+
+    <section id="character-section" style="display:none">
+      <h2>Featured Characters</h2>
+      <div id="character-list"></div>
+    </section>
+
+    <section id="story-section" style="display:none">
+      <h2>Story</h2>
+      <div id="story-container"></div>
+    </section>
+
+    <section id="currency-section" style="display:none">
+      <h2>Balances</h2>
+      <ul id="currency-list"></ul>
+    </section>
+
+    <section id="choice-section" style="display:none">
+      <form id="choice-form">
+        <div id="choices-list"></div>
+        <button id="send-choice" type="submit">Choose</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
