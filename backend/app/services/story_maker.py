@@ -29,13 +29,14 @@ import os
 import json
 from typing import Dict, List, Tuple, Optional, Any
 from openai import OpenAI
-from services.state_manager import GameStateManager
-from services.character_evolution import (
-    evolve_character_traits,
-    update_character_relationships,
-    create_character_evolution
-)
-from utils.character_manager import (
+# Gemini 2.5 Pro - June 6, 2025: Updated imports for new structure
+from .state_manager import GameStateManager # Assuming state_manager.py is in the same directory
+# from .character_evolution import ( # File not found, commented out
+#     evolve_character_traits,
+#     update_character_relationships,
+#     create_character_evolution
+# )
+from ..utils.character_manager import (
     extract_character_traits,
     extract_plot_lines,
     extract_character_style,
@@ -43,14 +44,14 @@ from utils.character_manager import (
     extract_character_role,
     extract_character_backstory,
     extract_character_plot_lines,
-    get_random_characters  # NEW: Use same function from character_manager
+    get_random_characters
 )
 import logging
 from datetime import datetime
-from database import db
-from models import StoryGeneration, Character, PlotArc, Mission
-from utils.validation_utils import validate_story_parameters
-from utils.context_manager import OpenAIContextManager
+from ..db import db # Placeholder, will be refined with db module implementation
+from ..models import StoryGeneration, Character, PlotArc, Mission # Assuming Character is available via models package
+# from ..utils.validation_utils import validate_story_parameters # File not found, commented out
+from ..utils.context_manager import OpenAIContextManager
 import random  # Existing import
 
 # Configure logging

@@ -33,12 +33,12 @@ Dependencies:
 import logging
 from typing import Dict, Any, Optional, List
 from datetime import datetime, timedelta
-from models import UserProgress, StoryGeneration, StoryNode, Mission
-from models.character_data import Character
-from database import db
-from services.story_maker import generate_story, get_openai_client
-from services.segment_maker import generate_continuation
-from services.mission_generator import (
+# Gemini 2.5 Pro - June 6, 2025: Updated imports for new structure
+from ..models import UserProgress, StoryGeneration, StoryNode, Mission
+from ..models.character_data import Character
+from ..db import db # Placeholder, will be refined with db module implementation
+from ..services.story_maker import generate_story, get_openai_client
+from ..services.mission_generator import (
     generate_mission,
     create_mission_from_story,
     get_user_active_missions,
@@ -46,10 +46,10 @@ from services.mission_generator import (
     complete_mission,
     fail_mission
 )
-from services.character_interaction import CharacterInteractionService
-from services.state_manager import GameState, state_manager
-from utils.context_manager import OpenAIContextManager, configure_logging
-from utils.character_manager import format_character_info
+# from ..services.character_interaction import CharacterInteractionService # Not yet implemented, commented out
+from ..services.state_manager import GameState, state_manager
+from ..utils.context_manager import OpenAIContextManager, configure_logging
+from ..utils.character_manager import format_character_info
 import json
 import sys
 
