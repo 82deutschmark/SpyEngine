@@ -117,10 +117,10 @@ This document outlines all database tables in our project, their relationships, 
 - `user_id`: Unique user identifier
 - `current_node_id`: Current story node
 - `current_story_id`: Current story
-- `level`: User's game level
-- `experience_points`: XP for leveling
+- `level`: User's game level  # Usage to be determined in the future
+- `experience_points`: XP for leveling # Usage to be determined in the future
 - `choice_history`: History of user's choices (JSON array)
-- `achievements_earned`: User's earned achievements (JSON array)
+- `achievements_earned`: User's earned achievements (JSON array) # Usage to be determined in the future
 - `currency_balances`: User's currency balances (JSON)
 - `encountered_characters`: Characters the user has met (JSON)
 - `active_missions`: Array of active mission IDs (JSON)
@@ -141,11 +141,11 @@ This document outlines all database tables in our project, their relationships, 
 - `story_id`: Associated story
 - `status`: Character status (active, deceased, etc.)
 - `role`: Character role (protagonist, antagonist, etc.)
-- `evolved_traits`: Traits developed during story (JSON)
-- `plot_contributions`: Character's contributions to plot (JSON)
-- `relationship_network`: Relations with other characters (JSON)
+- `evolved_traits`: Traits developed during story (JSON) # Usage to be determined in the future
+- `plot_contributions`: Character's contributions to plot (JSON) # Usage to be determined in the future
+- `relationship_network`: Relations with other characters (JSON) # Usage to be determined in the future
 - `first_appearance`, `last_updated`: Timestamps
-- `evolution_log`: Log of character evolution events (JSON)
+- `evolution_log`: Log of character evolution events (JSON) # Usage to be determined in the future
 
 ### 10. Mission
 **Purpose**: Stores player missions
@@ -167,7 +167,7 @@ This document outlines all database tables in our project, their relationships, 
 - `progress`: Percentage of completion (0-100)
 - `progress_updates`: Array of progress update events (JSON)
 
-### 11. Achievement
+### 11. Achievement  # Usage to be determined in the future
 **Purpose**: Stores achievements users can unlock
 **Usage**: Provides goals and rewards for progression
 **Key Fields**:
@@ -195,7 +195,7 @@ This document outlines all database tables in our project, their relationships, 
 - `rewards`: Rewards for completing the arc (JSON)
 - `created_at`, `updated_at`: Timestamps
 
-### 13. AIInstruction
+### 13. AIInstruction # Usage unknown!!!
 **Purpose**: Stores AI generation parameters and instructions
 **Usage**: Contains templates for AI-generated content
 **Key Fields**:
