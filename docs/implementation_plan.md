@@ -65,19 +65,51 @@ Folders will be created incrementally; stubs (`__init__.py` or `.gitkeep`) ensur
 4. **Docker Compose**: service graph – `backend`, `postgres`, optional `nginx`.
 
 ## 6. Milestones
-1. _Week 1_: Directory restructure, FastAPI skeleton, health-check green.
-2. _Week 2_: Database models & migrations; core engine compiles.
-3. _Week 3_: API routes, first happy-path e2e test; Capacitor app scaffold.
-4. _Week 4_: Authentication, currency subsystem verification; Capacitor UI for story start/view.
-5. _Week 5_: CI pipeline, documentation polish, beta release to TestFlight / Play Console.
+1. # of prompts needed???  : Directory restructure, FastAPI skeleton, health-check green.
+2.  # of prompts needed??? : Database models & migrations; core engine compiles.
+3. # of prompts needed??? : API routes, first happy-path e2e test; Capacitor app scaffold.
+4. # of prompts needed??? : Authentication, currency subsystem verification; Capacitor UI for story start/view.
+5. # of prompts needed??? : CI pipeline, documentation polish, beta release to TestFlight / Play Console.
 
 ## 7. Risks & Mitigations
 | Risk | Impact | Mitigation |
 |------|--------|-----------|
-| OpenAI rate limits | Blocks narrative generation | Implement exponential backoff & caching; allow fallback completion provider. |
-| Mobile storage limits | Story tree may grow | Paginate older nodes to server; compress JSON. |
+| OpenAI rate limits | Blocks narrative generation | Implement exponential backoff & caching; allow fallback completion provider. LOW PRIORITY |
+| Mobile storage limits | Story tree may grow | Paginate older nodes to server; compress JSON. LOW PRIORITY |
 | Import path regressions | Runtime errors | Introduce `pytest` import test after each move. |
 | Windows path quirks | Dev friction | Use `pathlib.Path` throughout; CI verifies on Ubuntu runner too. |
 
 ---
 **Next step**: create folder skeleton & move files as indicated. Tick each item above as it completes.
+
+---
+## 8. Progress Log
+
+**Update: June 6, 2025 (Handoff from Cascade AI Assistant)**
+
+**Summary of Work:**
+
+*   **Directory Structure & File Placement (Task 3.1 partially, related to 3.2):**
+    *   Backend directory structure under `backend/app/` created with `__init__.py` files.
+    *   Key modules moved/confirmed: `game_engine.py` (core), `segment_maker.py` (services - DEPRECATED), `story_maker.py` (services), `state_manager.py` (services), `game_api.py` (api/v1), utils (`constants.py`, `currency_utils.py`, `db_utils.py`), `character_data.py` (models), `mission_generator.py` (services), `character_interaction.py` (services - unimplemented).
+
+*   **Import Statement Updates (Task 3.2 - In Progress):**
+    *   `backend/app/core/game_engine.py`: Updated to relative imports. `CharacterInteractionService` import commented out. Unused `generate_continuation` import removed.
+    *   `backend/app/services/story_maker.py`: Updated to relative imports. Imports for missing `character_evolution.py` and `validation_utils.py` commented out.
+    *   `backend/app/services/segment_maker.py`: Reviewed. Module is DEPRECATED. No internal import changes made.
+
+*   **Status of Previously Missing Files:**
+    *   `character_data.py`: Now at `backend/app/models/character_data.py`.
+    *   `mission_generator.py`: Now at `backend/app/services/mission_generator.py`.
+    *   `character_interaction.py`: Now at `backend/app/services/character_interaction.py` (unimplemented).
+    *   `character_evolution.py`: **Still MISSING** (expected in `backend/app/services/`).
+    *   `validation_utils.py`: **Still MISSING** (expected in `backend/app/utils/`).
+
+**Notes for Next Developer:**
+
+*   **Continue Import Updates (Task 3.2):** Focus on `backend/app/api/v1/game_api.py` (Flask to FastAPI refactor & relative imports). Check utils.
+*   **Address Missing Files:** Locate/create `character_evolution.py` and `validation_utils.py`.
+*   **Database Integration (Task 3.4):** Implement SQLAlchemy setup in `backend/app/db/__init__.py`.
+*   **API Layer Refactor (Task 3.6):** Refactor `game_api.py` from Flask to FastAPI.
+*   **Deprecated `segment_maker.py`:** Plan for eventual removal.
+*   **Code Comments:** Use "Gemini 2.5 Pro" and current date for new work.
